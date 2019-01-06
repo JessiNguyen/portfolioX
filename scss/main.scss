@@ -1,0 +1,164 @@
+@import "config";
+@import "menu";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @include background();
+  background: #444444;
+  color: $color3;
+  height: 100%;
+  margin: 0;
+  font-family: "Futura Lt Bt";
+  line-height: 1.5;
+}
+
+// Headings
+h1,
+h2,
+h3 {
+  margin: 0%;
+  font-weight: 200;
+
+  &.lg-heading {
+    font-size: 6rem;
+  }
+  &.sm-heading {
+    margin-bottom: 2rem;
+    padding: 0.2rem 1rem;
+    -background: lighten($color1, $amount: 10);
+  }
+}
+
+a {
+  color: $color3;
+  text-decoration: none;
+}
+
+header {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+}
+
+.text-primary {
+  color: $color2;
+}
+
+main {
+  padding: 7rem;
+  height: 100%;
+
+  .icons {
+    display: inline-block;
+    margin-top: 0.5rem;
+
+    a {
+      padding: 0.4rem;
+
+      &:hover {
+        color: $color2;
+        @include ease-out();
+      }
+    }
+  }
+
+  &#home {
+    overflow: hidden;
+    h1 {
+      margin-top: 17vh;
+    }
+  }
+}
+
+.about-info {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-areas:
+    "bioimage bio bio"
+    "job1 job2 job3";
+  grid-template-columns: repeat(3, 1fr);
+
+  .bio-image {
+    grid-area: bioimage;
+    margin: auto;
+    border-radius: 50%;
+    border: $color2 3px solid;
+  }
+
+  .bio {
+    grid-area: bio;
+    font-size: 1.5rem;
+  }
+
+  .job-1 {
+    grid-area: job1;
+  }
+
+  .job-2 {
+    grid-area: job2;
+  }
+
+  .job-3 {
+    grid-area: job3;
+  }
+
+  .job {
+    background: lighten($color1, $amount: 4);
+    padding: 1rem;
+    margin-top: 3rem;
+    border-bottom: $color2 5px solid;
+  }
+}
+
+//Work/Projects
+.projects {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+
+  .items {
+    margin: 40px auto;
+  }
+
+  img {
+    width: 100%;
+    border: $color3 3px solid;
+
+    &:hover {
+      opacity: 0.5;
+      border-color: $color1;
+      @include ease-out;
+    }
+  }
+}
+
+// Contact
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem;
+
+  div {
+    font-size: 2rem;
+    border: 3px $color3 solid;
+    padding: 1.5rem 2.5rem;
+    margin-bottom: 3rem;
+    @include ease-out;
+
+    &:hover {
+      padding: 0.5rem 1.5rem;
+      background: $color2;
+      color: set-text-color($color2);
+      span {
+        color: set-text-color($color2);
+      }
+    }
+  }
+}
+
+@import "mobile";
